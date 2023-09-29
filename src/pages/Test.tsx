@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Question from "../components/question";
+import { useState, useEffect } from "react";
+import Question from "../components/Question";
 import { quesIDs } from "../data/quesIDs";
 import "./Test.css";
 
@@ -7,6 +7,7 @@ const Test = () => {
   const [currQues, setCurrQues] = useState(0);
   const [isLast, setIsLast] = useState(false);
   const [isFirst, setIsFirst] = useState(true);
+
   useEffect(() => {
     if (currQues === 0) {
       setIsFirst(true);
@@ -33,7 +34,6 @@ const Test = () => {
     <main>
       <div className="testPage">
         <div className="navSection">
-          <h4>Time: {}</h4>
           <span>
             {quesIDs.map((value, index) => (
               <button
