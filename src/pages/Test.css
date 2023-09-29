@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
+.testPage > div:nth-of-type(1){
+    order: 2;
+    padding: 0.5rem 1rem;
+}
 .testPage .quesSection button {
   padding: 0.7rem 1.5rem;
   font-size: 1rem;
@@ -35,11 +39,12 @@
   align-items: center;
 }
 .testPage > .navSection {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #0f2830;
 }
 .testPage > .navSection {
   display: flex;
+  color: #f8f8f8;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -48,8 +53,8 @@
 .testPage > .navSection > span > .ques {
   background-color: transparent;
   border: 1px solid #f8f8f8;
-  cursor: pointer;
   color: #f8f8f8;
+  cursor: pointer;
   padding: 1rem 2rem;
   font-size: 1.5rem;
   border-radius: 5px;
@@ -62,8 +67,8 @@
 .testPage > .navSection > .submit {
   margin: 2rem;
   padding: 0.7rem 1.5rem;
+  color: #f8f8f8;
   font-size: 1rem;
-  color: white;
   border-radius: 5px;
   border: 1px solid #014751;
   background-color: #014751;
@@ -71,4 +76,27 @@
 }
 .testPage > .navSection > .submit:hover{
     background-color: #003d46;
+}
+@media screen and (orientation: portrait){
+    .testPage{
+        grid-template-columns: 1fr;
+    }
+    .testPage > .navSection{
+        display: flex;
+        min-height: 10vh;
+    }
+    .testPage > .navSection > span > .ques{
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    .testPage > .navSection > .submit{
+        display: none;
+    }
+    .testPage > div:nth-of-type(2){
+        order: 2;
+        padding: 0.5rem 1rem;
+    }
+    .testPage > .quesSection{
+        min-height: 50vh;
+    }
 }
