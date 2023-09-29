@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./pages/Home";
-import Test from "./pages/Test";
+import Test from "./pages/TestPage";
 import Finish from "./pages/Finish";
 import { MathJax } from "./config/mathJaxContext";
 import { Routes, Route } from "react-router-dom";
