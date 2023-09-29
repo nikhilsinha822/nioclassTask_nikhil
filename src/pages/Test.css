@@ -1,0 +1,19 @@
+.testPage button{
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
+.testPage > button:hover{
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+}
+.testPage > .quesSection{
+    height: 100vh;
+    background-color: aliceblue;
+}

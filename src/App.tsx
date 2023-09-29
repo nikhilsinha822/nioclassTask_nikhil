@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
 import Test from "./pages/Test";
 import Finish from "./pages/Finish";
-import Home from "./pages/Home";
-import MathJaxContext from "better-react-mathjax/MathJaxContext";
 import { MathJax } from "./config/mathJaxContext";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import MathJaxContext from "better-react-mathjax/MathJaxContext";
 
 const App = () => {
   return (
@@ -12,8 +12,8 @@ const App = () => {
       <MathJaxContext config={MathJax}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/test" element={<Test />} />
-          <Route path="/finish" element={<Finish />} />
+          <Route path="test" element={<Test />} />
+          <Route path="finish" element={<Finish />} />
         </Routes>
       </MathJaxContext>
     </div>
