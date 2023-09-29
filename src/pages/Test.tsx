@@ -1,8 +1,12 @@
+import Question from "../components/question";
+import { quesIDs } from "../data/quesIDs";
 
 const Test = () => {
   return (
-    <div>Test</div>
-  )
-}
+    <>
+      {quesIDs.map((prop)=><Question query={prop}/>)}
+    </>
+  );
+};
 
-export default Test
+export default Test;
