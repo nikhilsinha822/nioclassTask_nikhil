@@ -1,19 +1,74 @@
-.testPage button{
-    top: 50%;
-    width: auto;
-    padding: 10px;
-    color: black;
-    font-weight: bold;
-    font-size: 15px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    cursor: pointer;
+.testPage {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 }
-.testPage > button:hover{
-    background-color: rgba(0,0,0,0.8);
-    color: white;
+.testPage .quesSection button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #014751;
+  background-color: #014751;
+  cursor: pointer;
 }
-.testPage > .quesSection{
-    height: 100vh;
-    background-color: aliceblue;
+.testPage .quesSection button:hover {
+  background-color: #003d46;
+}
+.testPage > .quesSection {
+  padding: 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: justify;
+  background-color: #f8f8f8;
+}
+.testPage > .quesSection > .ques {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  text-align: center;
+}
+.testPage > .quesSection > .navBtns {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+.testPage > .navSection {
+  height: 100vh;
+  background-color: #0f2830;
+}
+.testPage > .navSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.testPage > .navSection > span > .ques {
+  background-color: transparent;
+  border: 1px solid #f8f8f8;
+  cursor: pointer;
+  color: #f8f8f8;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  margin: 1rem;
+}
+.testPage > .navSection > span > .ques:hover {
+  background-color: #f8f8f8;
+  color: #0f2830;
+}
+.testPage > .navSection > .submit {
+  margin: 2rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #014751;
+  background-color: #014751;
+  cursor: pointer;
+}
+.testPage > .navSection > .submit:hover{
+    background-color: #003d46;
 }

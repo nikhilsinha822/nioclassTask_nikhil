@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
 import MathJax from "better-react-mathjax/MathJax";
 
 const Question = ({quesID}:{quesID: string}) => {
