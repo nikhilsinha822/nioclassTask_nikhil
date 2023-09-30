@@ -1,48 +1,20 @@
-import { useState, useEffect } from "react";
-import { quesIDs } from "../../data/quesIDs";
 import NavSection from "./NavSection";
 import QuesSection from "./QuesSection";
+import {useContext} from "react";
+import userContext from "../../contexts/userContext";
 import "./Test.css";
+import { Navigate } from "react-router-dom";
 
 const Test = () => {
-  const [currQues, setCurrQues] = useState(0);
-  const [isLast, setIsLast] = useState(false);
-  const [isFirst, setIsFirst] = useState(true);
-
-  useEffect(() => {
-    if (currQues === 0) {
-      setIsFirst(true);
-      setIsLast(false);
-    } else if (currQues === quesIDs.length - 1) {
-      setIsFirst(false);
-      setIsLast(true);
-    } else {
-      setIsLast(false);
-      setIsFirst(false);
-    }
-  }, [currQues]);
-  const handleNext = () => {
-    if (currQues != quesIDs.length - 1) {
-      setCurrQues(currQues + 1);
-    }
-  };
-  const handlePrev = () => {
-    if (currQues != 0) {
-      setCurrQues(currQues - 1);
-    }
-  };
+  const {username, selQuesID} = useContext(userContext);
   return (
     <main>
+      {
+        (username === null || username === "" || selQuesID.length === 0) && <Navigate to="/"/>
+      }
       <div className="testPage">
-        <NavSection quesIDs={quesIDs} setCurrQues={setCurrQues} />
-        <QuesSection
-          handlePrev={handlePrev}
-          handleNext={handleNext}
-          currQues={currQues}
-          isFirst={isFirst}
-          isLast={isLast}
-          quesIDs={quesIDs}
-        />
+        <NavSection />
+        <QuesSection />
       </div>
     </main>
   );

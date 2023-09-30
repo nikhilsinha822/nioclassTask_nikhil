@@ -1,25 +1,13 @@
+import { useContext } from "react";
+import userContext from "../../contexts/userContext";
 import Question from "../../components/Question";
 
-type quesSection = {
-  currQues: number;
-  isFirst: boolean;
-  isLast: boolean;
-  quesIDs: string[];
-  handlePrev: () => void;
-  handleNext: () => void;
-};
-const quesSection = ({
-  currQues,
-  isFirst,
-  isLast,
-  quesIDs,
-  handlePrev,
-  handleNext,
-}: quesSection) => {
+const quesSection = () => {
+  const { selQuesID, isFirst, isLast, handleNext, handlePrev, currQues } = useContext(userContext);
   return (
     <div className="quesSection">
       <span className="ques">
-        {currQues + 1}. &nbsp; {<Question quesID={quesIDs[currQues]} />}
+        {currQues + 1}. &nbsp; {<Question quesID={selQuesID[currQues]} />}
       </span>
       <span className="navBtns">
         {!isFirst && (

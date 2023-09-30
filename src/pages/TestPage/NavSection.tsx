@@ -1,18 +1,16 @@
-import React from "react";
+import {useContext} from "react";
+import userContext from "../../contexts/userContext";
 
-type navProps = {
-  quesIDs: string[];
-  setCurrQues: React.Dispatch<React.SetStateAction<number>>;
-};
-
-const NavSection = ({ quesIDs, setCurrQues }: navProps) => {
+const NavSection = () => {
+  const { selQuesID, setCurrQues} = useContext(userContext);
   return (
     <div className="navSection">
       <span>
-        {quesIDs.map((value, index) => (
+        {selQuesID.map((value, index) => (
           <button
             className="ques"
             key={index}
+            value={value}
             onClick={() => {
               setCurrQues(index);
             }}
