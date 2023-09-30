@@ -1,10 +1,12 @@
 import {useContext} from "react";
 import userContext from "../../contexts/userContext";
+import TimeCounter from "../../components/TimeCounter";
 
 const NavSection = () => {
-  const { selQuesID, setCurrQues} = useContext(userContext);
+  const { selQuesID, setCurrQues } = useContext(userContext);
   return (
     <div className="navSection">
+      <TimeCounter/>
       <span>
         {selQuesID.map((value, index) => (
           <button

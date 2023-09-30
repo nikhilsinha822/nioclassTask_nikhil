@@ -1,21 +1,34 @@
 import { useContext } from "react";
 import { quesIDs } from "../data/quesIDs";
-import userContext from "../contexts/userContext";
-
-import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import userContext from "../contexts/userContext";
+import "./Home.css";
 
 const Home = () => {
-  const { username, setUsername, time, selQuesID, setSelQuesID, setTime } = useContext(userContext);
+  const {
+    username,
+    setUsername,
+    time,
+    selQuesID,
+    setSelQuesID,
+    setTime,
+    setStrtTime,
+  } = useContext(userContext);
   const Navigate = useNavigate();
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (username == undefined || username === "") alert("username is required");
     else if (selQuesID.length == 0) {
       alert("select atleast one ques");
     } else {
+      const hours = new Date().getHours();
+      const min = new Date().getMinutes();
+      const sec = new Date().getSeconds();
+      setStrtTime({ hours, min, sec });
       Navigate("/test");
     }
   };
+
   const handleList = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setSelQuesID([...selQuesID, e.target.value]);
@@ -39,7 +52,7 @@ const Home = () => {
         {quesIDs.map((prop) => (
           <div key={prop} onChange={handleList}>
             <label>{prop}</label>
-            <input name={prop} value={prop} type="checkbox"/>
+            <input name={prop} value={prop} type="checkbox" />
           </div>
         ))}
         <button onClick={handleClick}>Start Test</button>
