@@ -17,7 +17,7 @@ const Home = () => {
   } = useContext(userContext);
   const Navigate = useNavigate();
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = () => {
     if (username == undefined || username === "") alert("username is required");
     else if (selQuesID.length == 0) {
       alert("select atleast one ques");

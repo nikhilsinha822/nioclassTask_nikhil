@@ -28,15 +28,16 @@ const Finish = () => {
             </div>
             <div style={{ textAlign: "right" }}>
               <div style={{ padding: "10px" }}>
-                <strong>Time</strong>
+                <strong>Time/Question</strong>
               </div>
               {perquesTimer.map((prop) => (
                 <div style={{ padding: "10px" }}>
-                  {prop.hours}:{prop.min}:{prop.sec}
+                  {prop.hours}hrs {prop.min}mins {prop.sec}sec
                 </div>
               ))}
             </div>
           </div>
+        <div style={{ textAlign: "center",padding: "30px 10px 0" }}><strong>Total time taken -</strong> {timeCounter.hours}hrs {timeCounter.min}mins {timeCounter.sec}sec</div>
         </div>
       </div>
     </div>
