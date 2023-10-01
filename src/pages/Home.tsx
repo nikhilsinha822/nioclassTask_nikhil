@@ -36,7 +36,7 @@ const Home = () => {
   const handleList = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setSelQuesID([...selQuesID, e.target.value]);
-      setTime((prev) => prev + 1);
+      setTime((prev) => prev + 5);
     } else {
       setSelQuesID(selQuesID.filter((prop) => prop != e.target.value));
       setTime((prev) => prev - 5);
