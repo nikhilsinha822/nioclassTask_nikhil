@@ -40,9 +40,10 @@ const quesSection = () => {
   };
 
   return (
-    <div className="quesSection">
+    <div className="quesSection" style={{maxWidth: "100vw", overflowX:"hidden"}}>
       <span className="ques">
-        {currQues + 1}. &nbsp; {<Question quesID={selQuesID[currQues]} />}
+       {currQues+1}. &nbsp;
+       {<Question quesID={selQuesID[currQues]}/>}
       </span>
       <span className="navBtns">
         {!isFirst && (

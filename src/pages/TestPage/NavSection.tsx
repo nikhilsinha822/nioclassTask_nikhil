@@ -12,7 +12,7 @@ const NavSection = () => {
   }
   
   return (
-    <div className="navSection">
+    <div className="navSection" style={{maxWidth: "100vw"}}>
       <TimeCounter/>
       <span>
         {selQuesID.map((value, index) => (

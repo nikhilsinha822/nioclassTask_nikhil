@@ -11,11 +11,11 @@ const Question = ({quesID}:{quesID: string}) => {
     })();
   },[quesID]);
   return (
-    <p style={{maxWidth: "100vw"}}>
+    <div>
       {data.map((prop: { QuestionID: string; Question: string }) => (
-        <MathJax style={{maxWidth: "100vw"}} key={prop.QuestionID}>{prop.Question}</MathJax>
+        <MathJax style={{maxWidth: "100vw", overflowX:"scroll"}} key={prop.QuestionID}>{prop.Question}</MathJax>
       ))}
-    </p>
+    </div>
   );
 };
 

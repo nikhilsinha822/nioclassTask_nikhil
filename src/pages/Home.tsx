@@ -55,7 +55,7 @@ const Home = () => {
         />
         {quesIDs.map((prop) => (
           <div key={prop} onChange={handleList}>
-            <label>{prop}</label>
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;{prop}</label>
             <input name={prop} value={prop} type="checkbox" />
           </div>
         ))}
