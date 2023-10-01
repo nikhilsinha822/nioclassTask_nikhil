@@ -15,7 +15,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="test" element={<Test />} />
-            <Route path="finish" element={<Finish />} />
+            <Route path="result" element={<Finish />} />
           </Routes>
         </MathJaxContext>
       </div>

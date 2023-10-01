@@ -1,15 +1,16 @@
 import { useContext, useEffect } from "react";
 import userContext from "../contexts/userContext";
+import { useNavigate } from "react-router-dom";
 
 const TimeCounter = () => {
-  const { setTimeCounter, timeCounter } = useContext(userContext);
-  useEffect(() => {
+  const { setTimeCounter, timeCounter, isFinished, time, setisFinished } = useContext(userContext);
+  const Navigate = useNavigate();
+  !isFinished && useEffect(() => {
     const interval = setInterval(() => {
       setTimeCounter((prevTime) => {
         const sec = prevTime.sec + 1;
         const min = sec === 60 ? prevTime.min + 1 : prevTime.min;
         const hours = min === 60 ? prevTime.hours + 1 : prevTime.hours;
-
         return {
           hours: hours % 24,
           min: min % 60,
@@ -17,10 +18,15 @@ const TimeCounter = () => {
         };
       });
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(()=>{
+    if(time === timeCounter.min){
+      setisFinished(true)
+      Navigate('/result');
+    }
+  },[timeCounter])
   return (
     <div>
       <span>

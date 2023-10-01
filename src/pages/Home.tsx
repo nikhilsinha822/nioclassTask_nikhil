@@ -10,6 +10,7 @@ const Home = () => {
     setUsername,
     time,
     selQuesID,
+    setperquesTimer,
     setSelQuesID,
     setTime,
     setStrtTime,
@@ -24,6 +25,9 @@ const Home = () => {
       const hours = new Date().getHours();
       const min = new Date().getMinutes();
       const sec = new Date().getSeconds();
+      const tm = {hours:0, min:0, sec:0};
+      const temp = selQuesID.map(()=>tm);
+      setperquesTimer([...temp]);
       setStrtTime({ hours, min, sec });
       Navigate("/test");
     }
@@ -32,7 +36,7 @@ const Home = () => {
   const handleList = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setSelQuesID([...selQuesID, e.target.value]);
-      setTime((prev) => prev + 5);
+      setTime((prev) => prev + 1);
     } else {
       setSelQuesID(selQuesID.filter((prop) => prop != e.target.value));
       setTime((prev) => prev - 5);

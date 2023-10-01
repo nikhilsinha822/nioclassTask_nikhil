@@ -1,9 +1,16 @@
 import {useContext} from "react";
 import userContext from "../../contexts/userContext";
 import TimeCounter from "../../components/TimeCounter";
+import { useNavigate } from "react-router-dom";
 
 const NavSection = () => {
-  const { selQuesID, setCurrQues } = useContext(userContext);
+  const { selQuesID, setCurrQues, setisFinished } = useContext(userContext);
+  const Navigate = useNavigate();
+  const handleSubmit = () => {
+    setisFinished(true);
+    Navigate('/result');
+  }
+  
   return (
     <div className="navSection">
       <TimeCounter/>
@@ -21,7 +28,7 @@ const NavSection = () => {
           </button>
         ))}
       </span>
-      <button className="submit">Submit</button>
+      <button className="submit" onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

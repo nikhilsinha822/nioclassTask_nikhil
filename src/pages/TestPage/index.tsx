@@ -6,13 +6,16 @@ import "./Test.css";
 import { Navigate } from "react-router-dom";
 
 const Test = () => {
-  const { username, selQuesID, strtTime } = useContext(userContext);
+  const { username, selQuesID, strtTime, isFinished } = useContext(userContext);
   return (
     <main>
       {(username === null ||
         username === "" ||
         selQuesID.length === 0 ||
         strtTime.hours < 0) && <Navigate to="/" />}
+      {
+        isFinished && <Navigate to="/result"/>
+      }
       <div className="testPage">
         <NavSection />
         <QuesSection />

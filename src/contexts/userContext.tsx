@@ -17,22 +17,26 @@ type Time = {
 };
 
 type userContextType = {
-  username: string;
-  selQuesID: string[];
   time: number;
-  isFirst: boolean;
   isLast: boolean;
   currQues: number;
+  isFirst: boolean;
+  username: string;
+  timeCounter: Time;
+  selQuesID: string[];
+  perquesTimer: Time[];
   strtTime: strtTimeType;
-  timeCounter: Time,
-  setTimeCounter: React.Dispatch<React.SetStateAction<Time>>,
+  isFinished: boolean,
+  handleNext: () => void;
+  handlePrev: () => void;
+  setisFinished: React.Dispatch<React.SetStateAction<boolean>>;
+  setperquesTimer: React.Dispatch<React.SetStateAction<Time[]>>;
+  setTimeCounter: React.Dispatch<React.SetStateAction<Time>>;
   setStrtTime: React.Dispatch<React.SetStateAction<strtTimeType>>;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   setSelQuesID: React.Dispatch<React.SetStateAction<string[]>>;
   setTime: React.Dispatch<React.SetStateAction<number>>;
   setCurrQues: React.Dispatch<React.SetStateAction<number>>;
-  handleNext: () => void;
-  handlePrev: () => void;
 };
 
 const defaultTime = {
@@ -42,9 +46,9 @@ const defaultTime = {
 } as strtTimeType;
 
 const defaultTimeCounter = {
-    hours: 0, 
-    min: 0, 
-    sec: 0 
+  hours: 0,
+  min: 0,
+  sec: 0,
 } as Time;
 
 const defaultuser = {
@@ -56,6 +60,10 @@ const defaultuser = {
   currQues: 0,
   strtTime: defaultTime,
   timeCounter: defaultTimeCounter,
+  perquesTimer: [],
+  isFinished: false,
+  setisFinished: () => {},
+  setperquesTimer: () => {},
   setTimeCounter: () => {},
   setStrtTime: () => {},
   setUsername: () => {},
@@ -77,6 +85,8 @@ export const UserProvider = ({ children }: userproviderProps) => {
   const [isLast, setIsLast] = useState<boolean>(true);
   const [isFirst, setIsFirst] = useState<boolean>(false);
   const [timeCounter, setTimeCounter] = useState<Time>(defaultTimeCounter);
+  const [perquesTimer, setperquesTimer] = useState<Time[]>([]);
+  const [isFinished, setisFinished] = useState<boolean>(false)
 
   useEffect(() => {
     if (currQues === 0) {
@@ -113,6 +123,10 @@ export const UserProvider = ({ children }: userproviderProps) => {
         currQues,
         strtTime,
         timeCounter,
+        perquesTimer,
+        isFinished,
+        setisFinished,
+        setperquesTimer,
         setTimeCounter,
         setStrtTime,
         setCurrQues,
